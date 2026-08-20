@@ -1,33 +1,21 @@
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
+import 'dotenv/config';
+import exampleRoutes from './routes/example.routes.js';
+import proveedoresRoutes from './routes/proveedores.routes.js';
 
 const app = express();
 
 //Middlewares globales
+app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-
-app.post('/registro', (req, res) =>{
-    const cuerpoPeticion = req.body;
-
-    res.status(201).json({
-        mensaje: "Recurso Creado con existo",
-        datosRecibidos: cuerpoPeticion
-    });
-});
-
-app.get('/perfil/:id', (req, res) => {
-    const idUsuario = req.params.id;
-    res.send(`Hola Mundo! y hola ${idUsuario}`);
-});
-
-app.get('/buscar', (req, res) => {
-    const categoria = req.query.categoria;
-    res.send(`Hola Mundo 2! estas buscando: ${categoria}`);
-});
+app.use('/api/ejemplos', exampleRoutes)
+app.use('/api/proveedores', proveedoresRoutes);
 
 app.listen(PORT, () => {
     console.log(`Servidor Express listo en http://localhost:${PORT}`);
