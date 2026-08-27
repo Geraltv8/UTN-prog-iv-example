@@ -1,0 +1,134 @@
+{
+  "info": {
+    "_postman_id": "d14d9876-0343-4814-9757-0a585ff75828",
+    "name": "UTN",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55471529",
+    "_collection_link": "https://go.postman.co/collection/55471529-d14d9876-0343-4814-9757-0a585ff75828?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Obtener Proveedores",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/proveedores/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "proveedores",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear Proveedores",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"razonSocial\": \"Tech Solutions Argentina S.A.\",\r\n  \"cuit\": \"30712345678\",\r\n  \"contacto\": {\r\n    \"email\": \"ventas@techsolutions.com\",\r\n    \"telefono\": \"+54 9 11 5555-4444\"\r\n  },\r\n  \"categorias\": [\r\n    \"HARDWARE\",\r\n    \"INSUMOS\"\r\n  ],\r\n  \"activo\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/proveedores/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "proveedores",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener Proveedores por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/proveedores/6a90991cfc0024ab560652ec",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "proveedores",
+            "6a90991cfc0024ab560652ec"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar Proveedores por ID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/proveedores/6a90991cfc0024ab560652ec",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "proveedores",
+            "6a90991cfc0024ab560652ec"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar Proveedores por ID",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"razonSocial\": \"Tech Solutions Argentina S.A.\",\r\n  \"cuit\": \"30712345600\",\r\n  \"contacto\": {\r\n    \"email\": \"ventas@techsolutions.com\",\r\n    \"telefono\": \"+54 9 11 5555-4444\"\r\n  },\r\n  \"categorias\": [\r\n    \"HARDWARE\",\r\n    \"INSUMOS\"\r\n  ],\r\n  \"activo\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/proveedores/6a909905fc0024ab560652ea",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "proveedores",
+            "6a909905fc0024ab560652ea"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
