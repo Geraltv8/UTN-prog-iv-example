@@ -1,0 +1,13 @@
+{
+  "razonSocial": "Tech Solutions Argentina S.A.",
+  "cuit": "30712345678",
+  "contacto": {
+    "email": "ventas@techsolutions.com",
+    "telefono": "+54 9 11 5555-4444"
+  },
+  "categorias": [
+    "HARDWARE",
+    "INSUMOS"
+  ],
+  "activo": true
+}
