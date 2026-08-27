@@ -17,3 +17,18 @@ export const crearProveedor = async (req, res) => {
         );
     }
 };
+
+export const obtenerProveedores = async (req, res) => {
+    try {
+
+        const proveedores = await Proveedor.find();
+        res.status(200).json(proveedores);
+
+    } catch (error) {
+        res.status(500).json(
+            { 
+                mensaje: "error del servidor"
+            }
+        );
+    }
+};
