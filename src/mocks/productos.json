@@ -1,0 +1,56 @@
+[
+  {
+    "codigoSKU": "TEC-001",
+    "nombre": "Teclado mecanico RGB",
+    "precio": 89500,
+    "stock": 25,
+    "categoria": "PERIFERICOS",
+    "proveedor": "507f1f77bcf86cd799439011",
+    "estadoActivo": true
+  },
+  {
+    "codigoSKU": "TEC-002",
+    "nombre": "Mouse inalambrico ergonomico",
+    "precio": 45900,
+    "stock": 40,
+    "categoria": "PERIFERICOS",
+    "proveedor": "507f1f77bcf86cd799439011",
+    "estadoActivo": true
+  },
+  {
+    "codigoSKU": "MON-001",
+    "nombre": "Monitor LED 24 pulgadas",
+    "precio": 215000,
+    "stock": 12,
+    "categoria": "MONITORES",
+    "proveedor": "507f1f77bcf86cd799439012",
+    "estadoActivo": true
+  },
+  {
+    "codigoSKU": "COM-001",
+    "nombre": "Memoria RAM DDR4 16GB",
+    "precio": 78000,
+    "stock": 30,
+    "categoria": "COMPONENTES",
+    "proveedor": "507f1f77bcf86cd799439013",
+    "estadoActivo": true
+  },
+  {
+    "codigoSKU": "COM-002",
+    "nombre": "Disco SSD NVMe 1TB",
+    "precio": 132000,
+    "stock": 18,
+    "categoria": "COMPONENTES",
+    "proveedor": "507f1f77bcf86cd799439013",
+    "estadoActivo": true
+  },
+  {
+    "codigoSKU": "ACC-001",
+    "nombre": "Hub USB-C multipuerto",
+    "precio": 62500,
+    "stock": 20,
+    "categoria": "ACCESORIOS",
+    "proveedor": "507f1f77bcf86cd799439012",
+    "estadoActivo": true
+  }
+]

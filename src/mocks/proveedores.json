@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "507f1f77bcf86cd799439011",
+    "razonSocial": "Tech Solutions Argentina S.A.",
+    "cuit": "30712345678",
+    "contacto": {
+      "email": "ventas@techsolutions.com",
+      "telefono": "+54 9 11 5555-4444"
+    },
+    "direccion": {
+      "calle": "Av. Corrientes 1234",
+      "ciudad": "Buenos Aires",
+      "pais": "Argentina"
+    },
+    "calificacion": 5,
+    "estadoActivo": true
+  },
+  {
+    "_id": "507f1f77bcf86cd799439012",
+    "razonSocial": "Distribuidora del Centro S.R.L.",
+    "cuit": "30723456789",
+    "contacto": {
+      "email": "contacto@distribuidoracentro.com",
+      "telefono": "+54 351 455-6677"
+    },
+    "direccion": {
+      "calle": "Bv. San Juan 850",
+      "ciudad": "Cordoba",
+      "pais": "Argentina"
+    },
+    "calificacion": 4,
+    "estadoActivo": true
+  },
+  {
+    "_id": "507f1f77bcf86cd799439013",
+    "razonSocial": "Patagonia Componentes S.A.",
+    "cuit": "30734567890",
+    "contacto": {
+      "email": "ventas@patagoniacomponentes.com",
+      "telefono": "+54 299 488-9900"
+    },
+    "direccion": {
+      "calle": "Mitre 456",
+      "ciudad": "Neuquen",
+      "pais": "Argentina"
+    },
+    "calificacion": 3,
+    "estadoActivo": true
+  }
+]
