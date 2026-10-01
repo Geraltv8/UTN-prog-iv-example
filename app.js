@@ -7,6 +7,7 @@ import 'dotenv/config';
 import authRoutes from './src/routes/auth.routes.js'
 import proveedoresRoutes from './src/routes/proveedores.routes.js';
 import productosRoutes from './src/routes/productos.routes.js';
+import climaRoutes from './src/routes/externo.routes.js'
 import { limitadorGlobal } from './src/middlewares/rateLimit.middleware.js';
 
 const app = express();
@@ -37,6 +38,7 @@ const PORT = process.env.PORT || 3000;
 app.use('/api/login', authRoutes)
 app.use('/api/proveedores', proveedoresRoutes);
 app.use('/api/productos', productosRoutes);
+app.use('/api/externa/clima', climaRoutes)
 
 try {
     await conectarDB();
