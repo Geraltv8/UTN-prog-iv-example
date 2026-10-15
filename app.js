@@ -1,5 +1,6 @@
 import { createServer } from 'http';
 import { Server } from 'socket.io';
+import { initListenerFirebase } from './src/services/firebaseListener.js';
 import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -46,7 +47,7 @@ app.use('/api/ia', iaRoutes);
 
 const httpServer = createServer(app);
 
-const io = new Server(httpServer, {
+export const io = new Server(httpServer, {
     cors: { origin: '*' }
 });
 
@@ -67,6 +68,8 @@ io.on( 'connection', (socket) => {
         console.log(`🔴 Cliente desconectado. ID: ${socket.id}`)
     });
 });
+
+initListenerFirebase();
 
 try {
     await conectarDB();
