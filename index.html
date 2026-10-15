@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prueba WebSockets</title>
+   
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+</head>
+<body style="font-family: sans-serif; text-align: center; margin-top: 50px;">
+    
+    <h1>Consola en Tiempo Real</h1>
+    <button onclick="saludarServidor()" style="padding: 10px 20px; font-size: 16px;">
+        Saludar al Servidor
+    </button>
+    
+    <div id="mensajes" style="margin-top: 20px; color: blue; font-size: 20px;"></div>
+
+    <script>
+       
+        const socket = io('http://localhost:3000');
+
+        function saludarServidor() {
+         
+            socket.emit('aviso_frontend', { texto: "Hola desde Chrome!" });
+        }
+
+                socket.on('notificacion_global', (data) => {
+            const div = document.getElementById('mensajes');
+            div.innerHTML += `<p>${data.mensaje}</p>`;
+        });
+    </script>
+</body>
+</html>

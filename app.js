@@ -1,3 +1,5 @@
+import { createServer } from 'http';
+import { Server } from 'socket.io';
 import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -42,10 +44,34 @@ app.use('/api/productos', productosRoutes);
 app.use('/api/externa/clima', climaRoutes);
 app.use('/api/ia', iaRoutes);
 
+const httpServer = createServer(app);
+
+const io = new Server(httpServer, {
+    cors: { origin: '*' }
+});
+
+io.on( 'connection', (socket) => {
+    console.log(`🟢 Nuevo cliente conectado al WebSocket, ID: ${socket.id}`);
+
+    socket.on('aviso_frontend', (data) => {
+        console.log('mensaje del frontend:', data);
+
+        io.emit('notificacion_global', {
+            mensaje: "Alguien hizo click"
+        });
+    });
+
+    
+
+    socket.on('disconnect', () => {
+        console.log(`🔴 Cliente desconectado. ID: ${socket.id}`)
+    });
+});
+
 try {
     await conectarDB();
-    app.listen(PORT, () => {
-        console.log(`Servidor Express listo en http://localhost:${PORT}`);
+    httpServer.listen(PORT, () => {
+        console.log(`Servidor Express y WebSockets listos en http://localhost:${PORT}`);
     });
 } catch (error) {
     process.exitCode = 1;
