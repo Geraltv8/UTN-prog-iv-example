@@ -31,7 +31,7 @@ try {
     await conectarDB();
     initListenerFirebase(io);
     httpServer.listen(PORT, () => {
-        console.log(`Servidor Express y WebSockets listos en http://localhost:${PORT}`);
+        console.log(`Servidor Express y WebSockets listo en http://localhost:${PORT}`);
     });
 } catch (error) {
     console.error('No se pudo iniciar el servidor:', error);
