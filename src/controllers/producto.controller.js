@@ -14,7 +14,7 @@ export const obtenerProductos = async (req, res) => {
         const filtro = req.query.categoria ? { categoria: req.query.categoria } : {};
         const productos = await Producto.find(filtro)
             .populate('proveedor', 'razonSocial cuit contacto.email calificacion');
-        res.status(201).json(productos);
+        res.status(200).json(productos);
     } catch (error) {
         res.status(500).json({ mensaje: 'Error del servidor', detalle: error.message });
     }
