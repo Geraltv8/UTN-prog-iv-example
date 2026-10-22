@@ -1,0 +1,28 @@
+
+name: Node.js CI (Integracion Continua)
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # descargar el codigo
+    - name: Descargar el codigo
+      uses: actions/checkout@v3
+      # instalar node
+    - name: Configurar Node.js
+      uses: actions/setup-node@v3
+      with: 
+        node-version: '24.#'
+
+    - name: Instalar dependencias
+      run: npm install
+
+    - name: Ejecutar pruebas unitarias  
+      run: npm test
