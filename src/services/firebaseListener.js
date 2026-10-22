@@ -1,7 +1,6 @@
 import { dbFirestore } from "../config/firebase.js";
-import { io } from "../../app.js"
 
-export const initListenerFirebase = () => {
+export const initListenerFirebase = (io) => {
     console.log("🦻 Node.js esta escuchando Firebase Firestore...");
 
     dbFirestore.collection('alertas').onSnapshot((snapshot) => {

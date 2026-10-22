@@ -1,11 +1,7 @@
-import { createServer } from 'http';
-import { Server } from 'socket.io';
-import { initListenerFirebase } from './src/services/firebaseListener.js';
 import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import cors from 'cors';
-import { conectarDB } from './src/config/db.js';
 import 'dotenv/config';
 import authRoutes from './src/routes/auth.routes.js'
 import proveedoresRoutes from './src/routes/proveedores.routes.js';
@@ -16,11 +12,8 @@ import iaRoutes from './src/routes/ia.routes.js'
 
 const app = express();
 
-//Middlewares globales
-//Oculata los headers
 app.use(helmet());
 
-//whitelist de paginas permitidas
 const originesPermitidos = ['http://localhost:5173', 'https://mi-pagina.com']
 
 app.use(cors({
@@ -37,47 +30,10 @@ app.use(morgan('dev'));
 app.use(limitadorGlobal);
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
-
 app.use('/api/login', authRoutes)
 app.use('/api/proveedores', proveedoresRoutes);
 app.use('/api/productos', productosRoutes);
 app.use('/api/externa/clima', climaRoutes);
 app.use('/api/ia', iaRoutes);
-
-const httpServer = createServer(app);
-
-export const io = new Server(httpServer, {
-    cors: { origin: '*' }
-});
-
-io.on( 'connection', (socket) => {
-    console.log(`🟢 Nuevo cliente conectado al WebSocket, ID: ${socket.id}`);
-
-    socket.on('aviso_frontend', (data) => {
-        console.log('mensaje del frontend:', data);
-
-        io.emit('notificacion_global', {
-            mensaje: "Alguien hizo click"
-        });
-    });
-
-    
-
-    socket.on('disconnect', () => {
-        console.log(`🔴 Cliente desconectado. ID: ${socket.id}`)
-    });
-});
-
-initListenerFirebase();
-
-try {
-    await conectarDB();
-    httpServer.listen(PORT, () => {
-        console.log(`Servidor Express y WebSockets listos en http://localhost:${PORT}`);
-    });
-} catch (error) {
-    process.exitCode = 1;
-}
 
 export default app;
